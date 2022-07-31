@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:joelslist/postings/domain/posting_model.dart';
+import 'package:joelslist/postings/domain/models/posting_model.dart';
 import 'package:joelslist/widgets/custom_text.dart';
 
 class PostingCard extends StatelessWidget {

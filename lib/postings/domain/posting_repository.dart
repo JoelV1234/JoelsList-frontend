@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:joelslist/locator.dart';
-import 'package:joelslist/postings/domain/posting_model.dart';
+import 'package:joelslist/postings/domain/models/posting_model.dart';
 import 'package:joelslist/services/http_service/http_client.dart';
 
 
@@ -24,4 +24,7 @@ class PostingsRepository {
     List<Posting> postings = Posting.getListFromJson(decodedResponse);
     return postings;
   }
+
+
+  
 }

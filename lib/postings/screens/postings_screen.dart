@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:joelslist/layout/widgets/app_page/app_page.dart';
 import 'package:joelslist/layout/widgets/app_page/search_daelegate.dart';
-import 'package:joelslist/postings/domain/posting_model.dart';
+import 'package:joelslist/postings/domain/models/posting_model.dart';
 import 'package:joelslist/postings/domain/posting_repository.dart';
 import 'package:joelslist/postings/widgets/postings_widget.dart';
 
