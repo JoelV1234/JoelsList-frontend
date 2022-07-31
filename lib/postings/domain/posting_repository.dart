@@ -25,6 +25,15 @@ class PostingsRepository {
     return postings;
   }
 
-
+  Future<List<String>> searchSuggestions(String searchTerm) async {
+    var response = await httpService.get(
+      path : '/get_posting',
+      queryParams:  {
+        'search_term' : searchTerm
+      }
+    );
+    List<String> searchResults = jsonDecode(response.data);
+    return searchResults;
+  }
   
 }
