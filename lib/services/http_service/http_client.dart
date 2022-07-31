@@ -5,12 +5,13 @@ import 'package:joelslist/services/http_service/http_implementaion.dart';
 class HttpClient implements HttpImplementation{
 
 
-  var options = BaseOptions(
-    baseUrl: baseUrl,
 
+
+  Dio dio = Dio(
+    BaseOptions(
+      baseUrl: baseUrl,
+    )
   );
-
-  Dio get dio => Dio(options);
 
   @override
   Future<Response> get({

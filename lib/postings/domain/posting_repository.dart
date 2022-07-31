@@ -11,7 +11,7 @@ class PostingsRepository {
   Future<List<Posting>> getPostings(String? searchQuery) async {
 
     var response = await httpService.get(
-      path : 'http://127.0.0.1:8000/cl/get_posting',
+      path : '/get_posting',
 
       //TODO : make this query parmas code cleaner
       queryParams: searchQuery != null ? {
