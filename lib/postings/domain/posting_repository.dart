@@ -27,7 +27,7 @@ class PostingsRepository {
 
   Future<List<String>> searchSuggestions(String searchTerm) async {
     var response = await httpService.get(
-      path : '/get_posting',
+      path : '/suggestions',
       queryParams:  {
         'search_term' : searchTerm
       }
