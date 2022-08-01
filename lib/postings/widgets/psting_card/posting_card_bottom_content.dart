@@ -14,13 +14,14 @@ class PostingCardBottomContent extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 13),
-        CustomText(text: posting.title, fontSize: 18),
-        const SizedBox(height: 10),
+        CustomText(text: posting.title, fontSize: 16),
+        const SizedBox(height: 16),
         CustomText(
           text: posting.price ?? '', 
           fontSize: 26, 
           weight: FontWeight.w500
-        )
+        ),
+        const SizedBox(height: 20)
       ]
     );
   }
