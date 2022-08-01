@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:joelslist/locator.dart';
-import 'package:joelslist/postings/screens/postings_screen.dart';
+import 'package:joelslist/postings/screens/postings_screen/postings_screen.dart';
 
 void main() {
   setUpLocator();
