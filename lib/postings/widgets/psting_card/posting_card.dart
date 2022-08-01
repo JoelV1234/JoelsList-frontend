@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:joelslist/postings/domain/models/posting_model.dart';
-import 'package:joelslist/widgets/custom_text.dart';
+import 'package:joelslist/postings/widgets/psting_card/posting_card_bottom_content.dart';
+
 
 class PostingCard extends StatelessWidget {
   final Posting posting;
@@ -28,31 +29,23 @@ class PostingCard extends StatelessWidget {
           child: InkWell(
               child: Card(
                 elevation: 0,
-                  child: Column(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child:  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       if (posting.images.isNotEmpty)
                         SizedBox(
-                            height: getCardHeight(cardPadding, contraints) * 0.55,
+                            height: getCardHeight(cardPadding, contraints) * 0.6,
                             child:  Ink.image(
                               image: NetworkImage(posting.images[0])
                             ) 
                         ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                        
-                          child : Column(
-                            children: [
-                              const SizedBox(height: 10),
-                              CustomText(text: posting.title, fontSize: 20),
-                              const SizedBox(height: 15),
-                              CustomText(text: posting.price ?? '', fontSize: 20)
-                            ]
-                          )
-                        )
+                        PostingCardBottomContent(posting: posting)
                     ],
-                  )
+                )
               )
+            )
           )
         );
       }

@@ -19,13 +19,16 @@ class PostingsWidget extends StatelessWidget {
 
     return FutureWidget<List<Posting>>(
       future: postings,
-      onData: (data) => GridView.count(
-        crossAxisCount: (screenWidth / crassAxisFactor).floor(),
-        childAspectRatio: 0.75,
-        children: data?.map((posting) => PostingCard(
-          posting: posting,
-          crossAxisFactor: crassAxisFactor,
-        )).toList() ?? []
+      onData: (data) => Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: GridView.count(
+          crossAxisCount: (screenWidth / crassAxisFactor).floor(),
+          childAspectRatio: 0.7,
+          children: data?.map((posting) => PostingCard(
+            posting: posting,
+            crossAxisFactor: crassAxisFactor,
+          )).toList() ?? []
+        ),
       )
     );
   }
