@@ -6,6 +6,7 @@ import 'package:joelslist/widgets/future_widget.dart';
 
 class PostingsSearchDelegate extends SearchDelegate {
 
+  
 
   void onResultSelected(BuildContext context, result) {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {

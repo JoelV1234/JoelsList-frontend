@@ -45,7 +45,8 @@ class _PostingsScreenState extends State<PostingsScreen> {
             onPressed: () {
               showSearch(
                 context: context, 
-                delegate: PostingsSearchDelegate()
+                delegate: PostingsSearchDelegate(),
+                query: widget.searchQuery
               );
             },
           )
