@@ -32,7 +32,7 @@ class PostingsRepository {
         'search_term' : searchTerm
       }
     );
-    List<String> searchResults = jsonDecode(response.data);
+    List<String> searchResults = List<String>.from(jsonDecode(response.data));
     return searchResults;
   }
   
