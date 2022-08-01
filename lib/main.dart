@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:joelslist/locator.dart';
 import 'package:joelslist/postings/screens/postings_screen/postings_screen.dart';
 
@@ -12,9 +13,10 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(textTheme: GoogleFonts.latoTextTheme()),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
+      home: const Scaffold(
         body: PostingsScreen(),
       ),
     );
