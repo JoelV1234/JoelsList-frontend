@@ -4,11 +4,13 @@ class Posting {
   String? price;
   String? location;
   List<String> images;
+  String? dataPid;
 
   Posting({
     this.title = '',
     this.price,
     this.location,
+    this.dataPid,
     this.images = const []
   });
 
@@ -17,7 +19,8 @@ class Posting {
       title: postingJson['title'] ?? '',
       price: postingJson['price'],
       location: postingJson['location'],
-      images:List<String>.from(postingJson['images'] as List)
+      images:List<String>.from(postingJson['images'] as List),
+      dataPid: postingJson['data_pid']
     );
   }
 
