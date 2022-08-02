@@ -46,17 +46,11 @@ class PostingsSearchDelegate extends SearchDelegate {
     return FutureWidget<List<String>>(
       future: locator<PostingsRepository>().searchSuggestions(query), 
       onData: (List<String>? data) { 
-        List<String> searchItems = data ?? [];
-        List<String> matchQuery = [];
-        for (String fruit in searchItems) {
-          if (fruit.toLowerCase().contains(query.toLowerCase())) {
-            matchQuery.add(fruit);
-          }
-        }
+        List<String> suggestions = data ?? [];
         return ListView.builder(
-          itemCount: matchQuery.length,
+          itemCount: suggestions.length,
           itemBuilder: (context, index) {
-            var result = matchQuery[index];
+            var result = suggestions[index];
             return ListTile(
               title: Text(result),
               onTap: () => onResultSelected(context, result)
