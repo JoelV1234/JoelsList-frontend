@@ -22,7 +22,7 @@ class PostingsSearchDelegate extends SearchDelegate {
   List<Widget>? buildActions(BuildContext context) =>
       [IconButton(
       onPressed: () {
-        query = '';
+        query.isEmpty ? close(context, query) : query = '';
       },
       icon: const Icon(Icons.close))];
 
