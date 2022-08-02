@@ -17,6 +17,7 @@ class PostingCard extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, contraints) {
         return InkWell(
+          onTap: () => Navigator.of(context).pushNamed('/post'),
           child: Card(
             elevation: 0,
             child: Padding(
