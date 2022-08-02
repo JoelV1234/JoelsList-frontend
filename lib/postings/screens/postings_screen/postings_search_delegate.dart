@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:joelslist/locator.dart';
 import 'package:joelslist/postings/domain/posting_repository.dart';
-import 'package:joelslist/postings/screens/postings_screen/postings_screen.dart';
 import 'package:joelslist/widgets/future_widget.dart';
 
 class PostingsSearchDelegate extends SearchDelegate {
@@ -11,10 +10,9 @@ class PostingsSearchDelegate extends SearchDelegate {
   void onResultSelected(BuildContext context, result) {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       close(context, result);
-        Navigator.push(context, 
-          MaterialPageRoute(
-            builder: (context) => PostingsScreen(searchQuery: result)
-          )
+        Navigator.pushNamed(
+          context, 
+          '/postings?query=$result'
         );   
       }
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:joelslist/locator.dart';
-import 'package:joelslist/postings/screens/postings_screen/postings_screen.dart';
+import 'package:joelslist/navigation/root_router.dart';
 
 void main() {
   setUpLocator();
@@ -16,9 +16,8 @@ class App extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(textTheme: GoogleFonts.latoTextTheme()),
       debugShowCheckedModeBanner: false,
-      home: const Scaffold(
-        body: PostingsScreen(),
-      ),
+      initialRoute: '/',
+      onGenerateRoute: RootRouter.generateRoute,
     );
   }
 }
