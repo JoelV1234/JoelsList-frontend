@@ -5,13 +5,15 @@ class Posting {
   String? location;
   List<String> images;
   String? dataPid;
+  String? postUrl;
 
   Posting({
     this.title = '',
     this.price,
     this.location,
     this.dataPid,
-    this.images = const []
+    this.images = const [],
+    this.postUrl
   });
 
   factory Posting.fromJson(dynamic postingJson) {
@@ -20,7 +22,8 @@ class Posting {
       price: postingJson['price'],
       location: postingJson['location'],
       images:List<String>.from(postingJson['images'] as List),
-      dataPid: postingJson['data_pid']
+      dataPid: postingJson['data_pid'],
+      postUrl: postingJson['post_url']
     );
   }
 
