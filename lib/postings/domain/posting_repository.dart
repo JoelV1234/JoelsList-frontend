@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:joelslist/locator.dart';
-import 'package:joelslist/postings/domain/models/posting_card.dart';
+import 'package:joelslist/postings/domain/models/posting_card_model.dart';
 import 'package:joelslist/services/http_service/http_client.dart';
 
 

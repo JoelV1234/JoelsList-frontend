@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:joelslist/postings/domain/models/posting_card.dart';
+import 'package:joelslist/postings/domain/models/posting_card_model.dart';
 import 'package:joelslist/postings/widgets/psting_card/posting_card_bottom_content.dart';
 
 

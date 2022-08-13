@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:joelslist/postings/domain/models/posting_card.dart';
+import 'package:joelslist/postings/domain/models/posting_card_model.dart';
 import 'package:joelslist/postings/widgets/psting_card/posting_card_widget.dart';
 import 'package:joelslist/widgets/future_widget.dart';
 

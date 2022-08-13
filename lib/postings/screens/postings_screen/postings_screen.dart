@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:joelslist/layout/widgets/app_page/app_page.dart';
-import 'package:joelslist/postings/domain/models/posting_card.dart';
+import 'package:joelslist/postings/domain/models/posting_card_model.dart';
 import 'package:joelslist/postings/domain/posting_repository.dart';
 import 'package:joelslist/postings/screens/postings_screen/postings_search_delegate.dart';
 import 'package:joelslist/postings/widgets/postings_widget.dart';
