@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:joelslist/postings/domain/models/posting_model.dart';
+import 'package:joelslist/postings/domain/models/posting_card.dart';
 import 'package:joelslist/postings/widgets/psting_card/posting_card_bottom_content.dart';
 
 
-class PostingCard extends StatelessWidget {
-  final Posting posting;
-  const PostingCard({Key? key, 
-    required this.posting,
+class PostingCardWidget extends StatelessWidget {
+  final PostingCard postingCards;
+  const PostingCardWidget({Key? key, 
+    required this.postingCards,
   }) : super(key: key);
 
 
@@ -25,14 +25,14 @@ class PostingCard extends StatelessWidget {
                 child:  Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    if (posting.images.isNotEmpty)
+                    if (postingCards.images.isNotEmpty)
                       SizedBox(
                         height: 200,
                         child:  Ink.image(
-                          image: NetworkImage(posting.images[0])
+                          image: NetworkImage(postingCards.images[0])
                         ) 
                       ),
-                    PostingCardBottomContent(posting: posting)
+                    PostingCardBottomContent(postingCard: postingCards)
                   ],
                 )
             )

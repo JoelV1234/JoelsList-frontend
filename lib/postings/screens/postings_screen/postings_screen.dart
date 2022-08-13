@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:joelslist/layout/widgets/app_page/app_page.dart';
-import 'package:joelslist/postings/domain/models/posting_model.dart';
+import 'package:joelslist/postings/domain/models/posting_card.dart';
 import 'package:joelslist/postings/domain/posting_repository.dart';
 import 'package:joelslist/postings/screens/postings_screen/postings_search_delegate.dart';
 import 'package:joelslist/postings/widgets/postings_widget.dart';
@@ -19,7 +19,7 @@ class PostingsScreen extends StatefulWidget {
 
 class _PostingsScreenState extends State<PostingsScreen> {
 
-  late Future<List<Posting>> postings;
+  late Future<List<PostingCard>> postingCards;
   PostingsRepository repository = PostingsRepository();
 
   List<String> searchItems = [
@@ -32,7 +32,7 @@ class _PostingsScreenState extends State<PostingsScreen> {
   @override
   void initState() {
     super.initState();
-    postings = repository.getPostings(widget.searchQuery);
+    postingCards = repository.getPostings(widget.searchQuery);
   }
 
   @override
@@ -51,7 +51,7 @@ class _PostingsScreenState extends State<PostingsScreen> {
             },
           )
         ],
-        child: PostingsWidget(postings: postings)
+        child: PostingsWidget(postingCards: postingCards)
       
     );
   }
