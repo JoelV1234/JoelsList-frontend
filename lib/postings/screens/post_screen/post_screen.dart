@@ -16,9 +16,7 @@ class PostScreen extends StatefulWidget {
 }
 
 class _PostScreenState extends State<PostScreen> {
-
   late Future<Post> getPost;
-  double horizontalPaddingRate = 0.8;
 
   @override
   void initState() {
@@ -26,45 +24,46 @@ class _PostScreenState extends State<PostScreen> {
     getPost = locator<PostingsRepository>().getPost(widget.postId);
   }
 
+  double carouselImageMaxWidth = 500;
+
+  double carouselImageWidth(width) {
+    if (width * 0.8 > carouselImageMaxWidth) {
+      return carouselImageMaxWidth / width;
+    }
+    return 0.8;
+  }
+
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: FutureWidget<Post>(
           future: getPost,
           onData: (post) => AppPage(
-            title: post?.title ?? '', 
-            child: ListView(
-              
-              children: [
-                const SizedBox(height: 30),
-                CarouselSlider.builder(
-                  itemCount: post?.images.length, 
-                  options: CarouselOptions(
-                    enableInfiniteScroll: false,
-                    autoPlay: false,
-                    enlargeCenterPage: true,
-                    viewportFraction: horizontalPaddingRate,
-                    height: 400
-                  ),
-                  itemBuilder: (context, index, pageViewIndex) {
-                    return Ink.image(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(post!.images[index])
-                    );
-                  } 
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    vertical: 10,
-                    horizontal: MediaQuery.of(context).size.width * 
-                                (1 - horizontalPaddingRate) / 2
-                  ),
-                  child: PostScreenDescription(post: post!)
-                )
-              ],
-            )
-          )
-      ),
+              title: post?.title ?? '',
+              child: ListView(
+                children: [
+                  const SizedBox(height: 30),
+                  CarouselSlider.builder(
+                      itemCount: post?.images.length,
+                      options: CarouselOptions(
+                          enableInfiniteScroll: false,
+                          autoPlay: false,
+                          enlargeCenterPage: true,
+                          viewportFraction: carouselImageWidth(width),
+                          height: carouselImageWidth(width) * width),
+                      itemBuilder: (context, index, pageViewIndex) {
+                        return Ink.image(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(post!.images[index]));
+                      }),
+                  Padding(
+                      padding: EdgeInsets.symmetric(
+                          vertical: 10, horizontal: (width * 0.2) / 2),
+                      child: PostScreenDescription(post: post!))
+                ],
+              ))),
     );
   }
 }
