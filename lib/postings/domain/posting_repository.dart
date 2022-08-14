@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:joelslist/locator.dart';
+import 'package:joelslist/postings/domain/models/post_model.dart';
 import 'package:joelslist/postings/domain/models/posting_card_model.dart';
 import 'package:joelslist/services/http_service/http_client.dart';
 
@@ -34,6 +35,18 @@ class PostingsRepository {
     );
     List<String> searchResults = List<String>.from(jsonDecode(response.data));
     return searchResults;
+  }
+
+  Future<Post> getPost(String? dataPid) async {
+    var response = await httpService.get(
+      path: '/get_post',
+      queryParams: {
+        'data_pid' : dataPid
+      }
+    );
+
+    Post post = Post.fromJson(jsonDecode(response.data));
+    return post;
   }
   
 }

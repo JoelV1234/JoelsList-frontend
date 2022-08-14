@@ -4,39 +4,38 @@ import 'package:joelslist/postings/widgets/psting_card/posting_card_bottom_conte
 
 
 class PostingCardWidget extends StatelessWidget {
-  final PostingCard postingCards;
+  final PostingCard postingCard;
   const PostingCardWidget({Key? key, 
-    required this.postingCards,
+    required this.postingCard,
   }) : super(key: key);
 
 
   @override
   Widget build(BuildContext context) {
 
-
     return LayoutBuilder(
       builder: (context, contraints) {
         return InkWell(
-          onTap: () => Navigator.of(context).pushNamed('/post'),
+          onTap: () => Navigator.of(context).pushNamed(
+            '/post?postId=${postingCard.dataPid}'
+          ),
           child: Card(
             elevation: 0,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-                child:  Column(
+            child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    if (postingCards.images.isNotEmpty)
+                    if (postingCard.images.isNotEmpty)
                       SizedBox(
                         height: 200,
                         child:  Ink.image(
-                          image: NetworkImage(postingCards.images[0])
+                          fit: BoxFit.cover,
+                          image: NetworkImage(postingCard.images[0])
                         ) 
                       ),
-                    PostingCardBottomContent(postingCard: postingCards)
+                    PostingCardBottomContent(postingCard: postingCard)
                   ],
                 )
             )
-          )
         );
       }
     );

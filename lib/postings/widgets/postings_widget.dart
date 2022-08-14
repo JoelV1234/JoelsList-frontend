@@ -23,12 +23,12 @@ class PostingsWidget extends StatelessWidget {
       onData: (data) => MasonryGridView.count(
         padding: const EdgeInsets.all(20),
         crossAxisCount: (screenWidth/crossAxisFactor).floor(),
-        mainAxisSpacing: 4,
-        crossAxisSpacing: 4,
+        mainAxisSpacing: 8,
+        crossAxisSpacing: 8,
         itemCount: data != null ? data.length : 0,
         itemBuilder: (context, index) {
             return PostingCardWidget(
-              postingCards: data![index]
+              postingCard: data![index]
             );
         },
       )

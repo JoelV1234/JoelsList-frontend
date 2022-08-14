@@ -11,19 +11,24 @@ class PostingCardBottomContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const SizedBox(height: 13),
-        CustomText(text: postingCard.title, fontSize: 16),
-        const SizedBox(height: 16),
-        CustomText(
-          text: postingCard.price ?? '', 
-          fontSize: 26, 
-          weight: FontWeight.w500
-        ),
-        const SizedBox(height: 20)
-      ]
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 14
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 13),
+          CustomText(text: postingCard.title, fontSize: 16),
+          const SizedBox(height: 16),
+          CustomText(
+            text: postingCard.price ?? '', 
+            fontSize: 26, 
+            weight: FontWeight.w500
+          ),
+          const SizedBox(height: 20)
+        ]
+      ),
     );
   }
 }
