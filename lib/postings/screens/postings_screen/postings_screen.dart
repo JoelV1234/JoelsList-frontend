@@ -5,29 +5,19 @@ import 'package:joelslist/postings/domain/posting_repository.dart';
 import 'package:joelslist/postings/screens/postings_screen/postings_search_delegate.dart';
 import 'package:joelslist/postings/widgets/postings_widget.dart';
 
-
-
 class PostingsScreen extends StatefulWidget {
   final String? searchQuery;
-  const PostingsScreen({Key? key,
-    this.searchQuery
-  }) : super(key: key);
+  const PostingsScreen({Key? key, this.searchQuery}) : super(key: key);
 
   @override
   State<PostingsScreen> createState() => _PostingsScreenState();
 }
 
 class _PostingsScreenState extends State<PostingsScreen> {
-
   late Future<List<PostingCard>> postingCards;
   PostingsRepository repository = PostingsRepository();
 
-  List<String> searchItems = [
-    'watermelon',
-    'apple',
-    'oragne',
-    'printer'
-  ];
+  List<String> searchItems = ['watermelon', 'apple', 'oragne', 'printer'];
 
   @override
   void initState() {
@@ -44,17 +34,12 @@ class _PostingsScreenState extends State<PostingsScreen> {
             icon: const Icon(Icons.search),
             onPressed: () {
               showSearch(
-                context: context, 
-                delegate: PostingsSearchDelegate(),
-                query: widget.searchQuery
-              );
+                  context: context,
+                  delegate: PostingsSearchDelegate(),
+                  query: widget.searchQuery);
             },
           )
         ],
-        child: PostingsWidget(postingCards: postingCards)
-      
-    );
+        child: PostingsWidget(postingCards: postingCards));
   }
 }
-
-
